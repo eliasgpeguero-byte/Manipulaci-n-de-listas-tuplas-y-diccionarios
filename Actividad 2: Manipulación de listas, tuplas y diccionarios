@@ -1,0 +1,38 @@
+carreras: tuple[str, ...] = ("Ingeniería de Software", "Contabilidad", "Derecho")
+
+personas: list[tuple[str, str, int, int]] = [
+    # nombre, apellido, edad, carrera
+]
+
+estudiantes: list[dict[str, str | int]] = [
+    
+]
+
+for i in range(5):
+    print(f"--- Registro del estudiante {i+1} ---")
+    nombre = input("Ingrese el nombre: ")
+    apellido = input("Ingrese el apellido: ")
+    edad = int(input("Ingrese la edad: "))
+    carrera = int(input("Ingrese la carrera (0: Ing. de Software, 1: Contabilidad, 2: Derecho): "))
+
+    persona = (nombre, apellido, edad, carrera)
+    personas.append(persona)
+    print("")
+
+for persona in personas:
+    nombre, apellido, edad, indice_carrera = persona
+    
+    nombre_carrera = carreras[indice_carrera]
+
+    diccionario_estudiante = {
+        "nombre": nombre,
+        "apellido": apellido,
+        "edad": edad,
+        "carrera": nombre_carrera
+    }
+    
+    estudiantes.append(diccionario_estudiante)
+
+print("=== LISTADO DE ESTUDIANTES ===")
+for estudiante in estudiantes:
+    print(f"{estudiante['nombre']} {estudiante['apellido']} tiene {estudiante['edad']} años y estudia {estudiante['carrera']}")
